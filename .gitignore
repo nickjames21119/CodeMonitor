@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Windows portable bundle (published as a release asset, not committed)
+python/
+*.zip
+Start ResearchMonitor.vbs
+Stop ResearchMonitor.vbs
+Self-test.cmd
+Command line.cmd
+README.txt
+
+# Local data, logs and secrets (never commit)
+.researchmonitor/
+*.db
+*.db-wal
+*.db-shm
+secrets.json
+dashboard_token
+*.log
+mail_outbox/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

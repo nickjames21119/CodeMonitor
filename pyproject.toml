@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "researchmonitor"
+version = "0.2.2"
+description = "Zero-config monitoring for long-running experiments: detects your training jobs by CPU/GPU features, reads their output, explains why they ended and sends one e-mail report."
+authors = [{name = "nickjames21119"}]
+keywords = ["monitoring", "machine-learning", "training", "gpu", "email", "notification", "experiment"]
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+dependencies = [
+    "psutil>=5.9",
+    "tomli>=1.1; python_version < '3.11'",
+    "keyring>=23; sys_platform == 'win32'",
+]
+
+[project.urls]
+Homepage = "https://github.com/nickjames21119/CodeMonitor"
+Issues = "https://github.com/nickjames21119/CodeMonitor/issues"
+
+[project.optional-dependencies]
+gpu = ["nvidia-ml-py>=11"]
+test = ["pytest>=7", "aiosmtpd>=1.4"]
+
+[project.scripts]
+rmon = "researchmonitor.cli:main"
+researchmonitor = "researchmonitor.cli:main"
+
+[tool.setuptools]
+packages = ["researchmonitor", "researchmonitor.notify"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
